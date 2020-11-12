@@ -29,8 +29,7 @@ List<Class> list = (List<Class>) context.mapping(/* ResultSet */rs);
 ```
 可以得到如下结果:
 ```json
-[
-	{
+[{
 		"id": 1,
 		"name": "Class-A",
 		"students": [{
@@ -47,6 +46,9 @@ List<Class> list = (List<Class>) context.mapping(/* ResultSet */rs);
 				"id": 3,
 				"name": "Student-b"
 			}]
-	}
-]
+	}, {
+		"id": 3,
+		"name": "Class-C",
+		"students": null
+	}]
 ```
