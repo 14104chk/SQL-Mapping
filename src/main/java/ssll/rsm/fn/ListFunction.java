@@ -42,19 +42,25 @@ public class ListFunction implements Function {
 				context.setResult(list);
 			}
 		} else {
+			list = null;
+		}
+		//
+		chain.doNext();
+		//
+		Object entity = chain.getEntity();
+		if (entity instanceof VirtualObject) {
+			return;
+		}
+		//
+		if (list == null) {
 			if ((list = (List) beanUtils.getProperty(parentEntity, propertyName)) == null) {
 				list = newList(context);
 				beanUtils.setProperty(parentEntity, propertyName, list);
 			}
 		}
 		//
-		chain.doNext();
-		//
-		Object entity = chain.getEntity();
-		if (!(entity instanceof VirtualObject)) {
-			if (!list.contains(entity)) {
-				list.add(entity);
-			}
+		if (!list.contains(entity)) {
+			list.add(entity);
 		}
 	}
 
