@@ -17,8 +17,8 @@ public class Student {
 ```
 使用如下的SQL:
 ```sql
-SELECT NULL AS ':ENTITY(Class)', s1.*, NULL AS '.students:LIST:ENTITY(Student)', s2.*
-FROM Class s1 LEFT JOIN Student s2 ON s2.class_id=s1.id
+SELECT NULL AS ':ENTITY(Class):ID(id)', s1.*, NULL AS '.students:LIST:ENTITY(Student):ID(id)', s2.*
+FROM t_class s1 LEFT JOIN t_student s2 ON s2.class_id=s1.id
 ```
 映射结果集
 ```java
