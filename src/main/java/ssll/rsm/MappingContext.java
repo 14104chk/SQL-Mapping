@@ -11,6 +11,14 @@ public class MappingContext {
 	private ResultSet resultSet;
 	private MappingConfig config;
 
+	public MappingContext() {
+		this(MappingConfig.getDefault());
+	}
+
+	public MappingContext(MappingConfig config) {
+		this.config = config;
+	}
+
 	public Object mapping(ResultSet rs) throws MappingException, SQLException {
 		this.resultSet = rs;
 		Label label = Label.parse(this, rs);

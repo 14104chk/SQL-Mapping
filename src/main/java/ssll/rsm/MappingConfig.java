@@ -70,12 +70,12 @@ public class MappingConfig {
 
 		});
 		//
-		config.registerFunctionFactory("LIST", ListFunction::new);
-		config.registerFunctionFactory("MAP", MapFunction::new);
-		config.registerFunctionFactory("ID", IdFunction::new);
-		config.registerFunctionFactory("ENTITY", EntityFunction::new);
-		config.registerFunctionFactory("ENTRY", EntryFunction::new);
-		config.registerFunctionFactory("WRITE", WriteFunction::new);
+		config.registerFunctionFactory("list", ListFunction::new);
+		config.registerFunctionFactory("map", MapFunction::new);
+		config.registerFunctionFactory("id", IdFunction::new);
+		config.registerFunctionFactory("entity", EntityFunction::new);
+		config.registerFunctionFactory("entry", EntryFunction::new);
+		config.registerFunctionFactory("write", WriteFunction::new);
 		//
 		config.propertyReaders = new PropertyReadersImpl();
 		config.setColumnSetters(Arrays.asList(

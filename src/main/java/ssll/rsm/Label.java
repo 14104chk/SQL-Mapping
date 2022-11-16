@@ -16,13 +16,12 @@ import java.util.Optional;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import static ssll.core.LangUitls.getOrElse;
 import ssll.rsm.fn.EntityFunction;
 import ssll.rsm.fn.Function;
 import ssll.rsm.fn.Function.Feature;
 import ssll.rsm.fn.ListFunction;
 import ssll.rsm.fn.WriteFunction;
-
-import static ssll.core.LangUitls.getOrElse;
 
 public class Label {
 
@@ -50,7 +49,7 @@ public class Label {
 		this.functions = new ArrayList<>();
 		Matcher m2 = P_FUNCTION.matcher(m.group(3));
 		while (m2.find()) {
-			String name = m2.group(1);
+			String name = m2.group(1).toLowerCase();
 			String[] args = Optional.ofNullable(m2.group(2)).flatMap(e -> Optional.of(e.split(","))).orElseGet(() -> new String[0]);
 			this.functions.add(context.getConfig().buildFunction(context, name, args));
 		}
